@@ -1,0 +1,236 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * TERRAIN INTELLIGENCE design system
+ * Near-monochrome: warm stone canvas, charcoal type, graphite panels,
+ * muted contour greys and ONE restrained amber reserved for warnings.
+ */
+
+@theme inline {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 1px);
+  --radius-xl: calc(var(--radius) + 3px);
+  --radius-2xl: calc(var(--radius) + 6px);
+  --radius-3xl: calc(var(--radius) + 10px);
+  --radius-4xl: calc(var(--radius) + 14px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-graphite: var(--graphite);
+  --color-graphite-foreground: var(--graphite-foreground);
+  --color-graphite-muted: var(--graphite-muted);
+  --color-graphite-border: var(--graphite-border);
+  --color-graphite-subtle: var(--graphite-subtle);
+  --color-contour: var(--contour);
+  --color-contour-strong: var(--contour-strong);
+  --color-grid: var(--grid);
+  --color-terrain: var(--terrain);
+  --color-terrain-deep: var(--terrain-deep);
+  --color-sky: var(--sky);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Stone canvas & charcoal ink */
+  --background: oklch(0.958 0.007 84);
+  --foreground: oklch(0.225 0.008 68);
+  --card: oklch(0.982 0.005 84);
+  --card-foreground: oklch(0.225 0.008 68);
+  --popover: oklch(0.985 0.004 84);
+  --popover-foreground: oklch(0.225 0.008 68);
+  --primary: oklch(0.26 0.007 68);
+  --primary-foreground: oklch(0.97 0.006 84);
+  --secondary: oklch(0.925 0.008 82);
+  --secondary-foreground: oklch(0.26 0.007 68);
+  --muted: oklch(0.935 0.007 82);
+  --muted-foreground: oklch(0.47 0.01 70);
+  --accent: oklch(0.915 0.009 80);
+  --accent-foreground: oklch(0.225 0.008 68);
+  --destructive: oklch(0.5 0.12 35);
+  --destructive-foreground: oklch(0.97 0.006 84);
+  --border: oklch(0.86 0.009 80);
+  --input: oklch(0.84 0.009 80);
+  --ring: oklch(0.45 0.01 70);
+
+  /* Single warning accent — amber, used sparingly */
+  --warning: oklch(0.7 0.135 68);
+  --warning-foreground: oklch(0.24 0.04 60);
+  --warning-soft: oklch(0.93 0.045 78);
+
+  /* Graphite instrument panels */
+  --graphite: oklch(0.255 0.006 68);
+  --graphite-foreground: oklch(0.94 0.006 84);
+  --graphite-muted: oklch(0.32 0.006 68);
+  --graphite-border: oklch(0.38 0.006 68);
+  --graphite-subtle: oklch(0.7 0.008 78);
+
+  /* Cartographic greys */
+  --contour: oklch(0.76 0.008 80);
+  --contour-strong: oklch(0.6 0.009 75);
+  --grid: oklch(0.9 0.007 82);
+  --terrain: oklch(0.905 0.011 78);
+  --terrain-deep: oklch(0.86 0.012 76);
+  --sky: oklch(0.975 0.005 84);
+
+  --chart-1: oklch(0.26 0.007 68);
+  --chart-2: oklch(0.55 0.009 72);
+  --chart-3: oklch(0.72 0.008 78);
+  --chart-4: oklch(0.7 0.135 68);
+  --chart-5: oklch(0.85 0.008 80);
+
+  --sidebar: oklch(0.982 0.005 84);
+  --sidebar-foreground: oklch(0.225 0.008 68);
+  --sidebar-primary: oklch(0.26 0.007 68);
+  --sidebar-primary-foreground: oklch(0.97 0.006 84);
+  --sidebar-accent: oklch(0.925 0.008 82);
+  --sidebar-accent-foreground: oklch(0.26 0.007 68);
+  --sidebar-border: oklch(0.86 0.009 80);
+  --sidebar-ring: oklch(0.45 0.01 70);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "tnum";
+  }
+
+  ::selection {
+    background: var(--color-warning-soft);
+  }
+}
+
+/* Small uppercase section label */
+@utility label-micro {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility label-nano {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@utility panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+@utility panel-graphite {
+  background-color: var(--color-graphite);
+  color: var(--color-graphite-foreground);
+  border: 1px solid var(--color-graphite);
+  border-radius: var(--radius);
+}
+
+@utility demo-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  padding: 0.2rem 0.3rem 0.18rem;
+  border: 1px dashed var(--color-contour-strong);
+  color: var(--color-muted-foreground);
+  border-radius: 2px;
+}
+
+@utility canvas-paper {
+  background-color: var(--color-background);
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-grid) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-grid) 70%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+}
+
+@keyframes buzzer-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.82); }
+}
+
+@keyframes beam-dash {
+  to { stroke-dashoffset: -24; }
+}
+
+@utility animate-buzzer {
+  animation: buzzer-pulse 0.9s ease-in-out infinite;
+}
+
+@utility animate-beam {
+  animation: beam-dash 0.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-buzzer, .animate-beam { animation: none; }
+}
